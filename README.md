@@ -2,13 +2,19 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.5.
 
-# NPM Node_Modules
+## NPM Node_Modules
 
 npm install
+
+## Environment
+
+Fill in the required information in the environment section.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+ng serve -o
 
 ## Code scaffolding
 
