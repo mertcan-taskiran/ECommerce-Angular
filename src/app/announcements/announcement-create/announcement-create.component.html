@@ -1,0 +1,35 @@
+<h3>Duyuru Oluştur</h3>
+
+<form #form="ngForm" (ngSubmit)="saveAnnouncement(form)">
+
+  <div class="alert alert-danger" *ngIf="error">
+    {{ error }}
+  </div>
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Duyuru Adı</label>
+    <input required [(ngModel)]="model.name" #name="ngModel" type="text" name="name" id="name" class="form-control">
+    <div class="text-danger mt-1" *ngIf="name.invalid && name.touched">
+      Duyuru ismi girilmelidir.
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="imageUrl" class="form-label">Resim</label>
+    <input required [(ngModel)]="model.imageUrl" type="text" name="imageUrl" #imageUrl="ngModel" id="imageUrl" class="form-control">
+    <div class="text-danger mt-1" *ngIf="imageUrl.invalid && imageUrl.touched">
+      Bir resim seçmelisin.
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="decription" class="form-label">Duyuru Detay</label>
+    <ckeditor [(ngModel)]="model.decription" name="decription" id="decription"></ckeditor>
+  </div>
+  <div class="form-check mb-3">
+    <input [(ngModel)]="model.isActive" class="form-check-input" type="checkbox" name="isActive" id="isActive">
+    <label class="form-check-label" for="flexCheckDefault">
+      Aktif
+    </label>
+  </div>
+
+  <button type="submit" class="btn btn-dark" [disabled]="form.invalid">Duyuru Kaydet</button>
+</form>

@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top mb-2">
+  <div class="container">
+    <a routerLink="/" class="navbar-brand">Shop App</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a routerLink="/" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/products" class="nav-link"><i class="fa-sharp fa-solid fa-cart-shopping"></i> Ürünler</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/contact" class="nav-link"><i class="fa-solid fa-phone"></i> İletişim</a>
+        </li>
+        <li *ngIf="isAdmin" class="nav-item">
+          <a routerLink="/products/create" class="nav-link"><i class="fa-solid fa-plus"></i> Ürün Oluştur</a>
+        </li>
+        <li *ngIf="isAdmin" class="nav-item">
+          <a routerLink="/categories/create" class="nav-link"><i class="fa-solid fa-plus"></i> Kategori Oluştur</a>
+        </li>
+        <li *ngIf="isAdmin" class="nav-item">
+          <a routerLink="/announcements/create" class="nav-link"><i class="fa-solid fa-plus"></i> Duyuru Oluştur</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li *ngIf="!isAuthenticated" class="nav-item">
+          <a routerLink="/auth" class="nav-link"><i class="fa-solid fa-user"></i> Hesap</a>
+        </li>
+        <li *ngIf="isAuthenticated" class="nav-item">
+          <a (click)="logout()" routerLink="/auth" class="nav-link"><i class="fa-solid fa-right-from-bracket"></i> Çıkış</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

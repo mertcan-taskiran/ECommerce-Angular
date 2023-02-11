@@ -1,0 +1,49 @@
+<div *ngIf="!loading">
+  <div *ngIf="products.length>0; else noProducts">
+    <ng-template [ngTemplateOutlet]="productList" [ngTemplateOutletContext]="{products: products}"></ng-template>
+  </div>
+</div>
+
+<ng-template #productList let-products="products">
+  <div class="row">
+    <div *ngFor="let product of products" class="col-4">
+      <div *ngIf="product.isActive" class="card mb-3" style="height: 30rem;">
+        <img src="{{ product.imageUrl }}" alt="" class="card-img-top product-img">
+        <div class="card-body text-center">
+          <h4>{{ product.name }}</h4>
+          <h4>{{ product.price }}₺</h4>
+          <a routerLink="/products/{{product.id}}" class="btn btn-dark">Ürün Detay</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #noProducts>
+  <div class="alert alert-danger">
+    Ürün Yok
+  </div>
+</ng-template>
+
+<div *ngIf="loading" class="spinner-border text-dark" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+<!-- <ng-template #productList let-products="products">
+  <div *ngFor="let product of products">
+    <div *ngIf="product.isActive" class="card mb-3 p-1">
+      <div class="row">
+        <div class="col-3">
+          <img src="/assets/images/{{ product.imageUrl }}" alt="" class="img-fluid rounded-start">
+        </div>
+        <div class="col-9">
+          <div class="card-body">
+            <h5>Ürün Adı: <span class="text-primary">{{ product.name }}</span></h5>
+            <h5>Fiyat: <span class="text-primary">{{ product.price }}₺</span></h5>
+            <a routerLink="/products/{{product.id}}" class="btn btn-dark">Ürün Detay</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template> -->

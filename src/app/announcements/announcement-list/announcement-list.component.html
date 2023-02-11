@@ -1,0 +1,23 @@
+<div *ngIf="announcements.length>0">
+  <ng-template [ngTemplateOutlet]="announcementList" [ngTemplateOutletContext]="{announcements: announcements}"></ng-template>
+</div>
+
+<ng-template #announcementList let-announcements="announcements">
+  <div *ngFor="let announcement of announcements">
+    <div id="urun" *ngIf="announcement.isActive" class="card mt-3 p-3 overflow-y-scroll" style="height: 21rem;">
+      <div class="row">
+        <aside class="col-6">
+          <div class="img-thumbnail">
+            <img src="{{ announcement.imageUrl }}" alt="" class="img-fluid rounded" style="width: 18rem; height: 18rem;">
+          </div>
+        </aside>
+        <div class="col-6">
+          <div class="card-body">
+            <h3 class="text-danger fw-bold">{{ announcement.name }}</h3>
+            <p [innerHTML]="announcement.description"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

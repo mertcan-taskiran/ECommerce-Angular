@@ -1,0 +1,104 @@
+.card {
+  width: 280px;
+  height: 360px;
+  position: relative;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 7px 10px rgba(0,0,0,0.5);
+  transition: 0.5s all;
+}
+.card:hover {
+  transform: translateY(-10px);
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,1,7,0), rgba(0,1,0,1));
+  opacity: 0;
+  z-index: 2;
+  transition: all 0.5s;
+}
+.card:hover::before {
+  opacity: 1;
+}
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.card .info {
+  position: relative;
+  color: #fff;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.5s all;
+}
+.card:hover .info {
+  opacity: 1;
+  transform: translateY(0);
+}
+.card .info h1 {
+  margin: 0;
+}
+.card .info p {
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+.card .info .btn {
+  text-decoration: none;
+  padding: 0.5rem;
+  background: #fff;
+  color: #000;
+  font-weight: bold;
+}
+
+
+
+
+
+
+/* .work {
+  width: 18rem;
+  height: 25rem;
+  perspective: 500px;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+img{
+  width: 18rem;
+  height: 25rem;
+}
+
+.work:hover .content {
+  transform: rotateY( 180deg ) ;
+  transition: transform 0.5s;
+}
+
+.front,
+.back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY( 180deg );
+} */
